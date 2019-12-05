@@ -14,8 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+$options = getopt("p:f:");
+
+if ( empty($options['f']) ) {
+    echo "\nError: Missing option -p or -f, see example command below\n";
+    echo "> php uploadFile.php -p parentid -f filename\n\n";
+    exit;
+}
+
 $parentId = null;
-$filename = "test.sql";
+
+if ( !empty($options['p']) ) {
+   $parentId = $options['p'];
+}
+
+$filename = $options['f'];
 $mimeType = 'text/plain';
 $credentialsFile = __DIR__ . '/../credentials.json';
 
