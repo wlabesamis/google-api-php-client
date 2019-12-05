@@ -92,8 +92,8 @@ $file->setMimeType($mimeType);
 // Set the parent folder.
 if ($parentId != null) {
 
-    $file->setId($parentId);
-    $file->setParents(array($parent));
+//    $file->setId($parentId);
+    $file->setParents(array($parentId));
 }
 
 $data = file_get_contents($filename);
